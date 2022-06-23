@@ -1,8 +1,9 @@
 import React from "react";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { StudySpot } from "./StudySpot";
 
-export function Map() {
+export function Map({studySpots}) {
     const zoom = 16.5;
     const minZoom = 15;
     const maxZoom = 18;
@@ -32,6 +33,20 @@ export function Map() {
                 />
                 <ZoomControl position="bottomleft" />
                 <AttributionControl position="bottomright" />
+                {
+                    studySpots && studySpots.map((spot) => {
+                        if (spot){
+                            return (
+                                <StudySpot
+                                    position = {spot && spot.lat && spot.lng ? [spot.lat, spot.lng] : [0 , 0]}
+                                    title = {spot ? spot.title : ""}
+                                />
+                            );
+                        } else {
+                            return null;
+                        }
+                    })
+                }
             </MapContainer>
         </>
     )
