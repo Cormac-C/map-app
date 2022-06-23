@@ -17,7 +17,7 @@ export function StudySpot({position, title}) {
                 icon={icon}
             >
                 <Popup>
-                    {title} <br /> Easily customizable.
+                    {title} <br /> Description.
                 </Popup>
             </Marker>
         </>
