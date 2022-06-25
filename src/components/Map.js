@@ -1,6 +1,5 @@
 import React from "react";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { StudySpot } from "./StudySpot";
 
 export function Map({studySpots}) {
