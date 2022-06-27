@@ -16,10 +16,10 @@ export function MainMap() {
     }
   ]
   return (
-    <div className = "App">
+    <main className = "App">
       <Map 
         studySpots={studySpots}
       />
-    </div>
+    </main>
   );
 }

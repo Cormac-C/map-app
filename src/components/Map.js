@@ -30,7 +30,9 @@ export function Map({studySpots}) {
                 <TileLayer
                     url={mapBoxStyleUrl}
                 />
-                <ZoomControl position="bottomleft" />
+                <nav>
+                    <ZoomControl position="bottomleft" />
+                </nav>
                 <AttributionControl position="bottomright" />
                 {
                     studySpots && studySpots.map((spot) => {
