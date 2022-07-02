@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import { StudySpot } from "./StudySpot";
 import { WeatherInfo } from "./WeatherInfo";
+import { Legend } from "./Legend";
 
 export function Map({studySpots}) {
     const zoom = 16.5;
@@ -35,7 +36,10 @@ export function Map({studySpots}) {
                     <ZoomControl position="bottomleft" />
                 </nav>
                 <AttributionControl position="bottomright" />
-                <WeatherInfo/>
+                <Legend
+                    title="Humidex Range"
+                    ranges={["Less than 20", "20-25", "25-30", "30-35", "35+"]}
+                />
                 {
                     studySpots && studySpots.map((spot) => {
                         if (spot){
