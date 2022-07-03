@@ -5,11 +5,27 @@ import { Marker, Popup } from "react-leaflet";
 import pinMarker from '../assets/pin.svg'
 import { Carousel, Image } from "react-bootstrap";
 
-export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo}) {
-    const icon = new L.Icon({
-        iconUrl: pinMarker,
-        iconSize: new L.Point(25, 25),
-      });
+export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour}) {
+    // const icon = new L.Icon({
+    //     iconUrl: pinMarker,
+    //     iconSize: new L.Point(25, 25),
+    //   });
+    const markerHtml = `
+        background-color: ${colour};
+        width: 1.5rem;
+        height: 1.5rem;
+        display: block;
+        left: -0.5rem;
+        top: -0.5rem;
+        position: relative;
+        border-radius: 1.5rem;
+        border: 1px solid #FFFFFF`
+    const icon = new L.divIcon({
+        iconAnchor: [0, 24],
+        labelAnchor: [-6, 0],
+        // popupAnchor: [0, -36],
+        html: `<span style="${markerHtml}" />`
+    })
     return (
         <>
             <Marker 

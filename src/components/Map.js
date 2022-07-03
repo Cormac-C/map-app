@@ -13,6 +13,21 @@ export function Map({studySpots}) {
     const currentLocation = { lat: 43.471, lng: -80.543 };
     const mapBoxStyleUrl = "https://api.mapbox.com/styles/v1/cormacc/cl4pvmkgk000u15rpva8wyi39/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWFjYyIsImEiOiJjbDRwdWQxcXIwNXJxM2NwbG9zcTg2cHkyIn0.yAYe13rux3sEtmH9ucEEpw"
 
+    //TODO improve the colours up here
+    const legendColours = ["purple", "cyan", "green", "yellow", "orange", "red"]
+    const humidexRanges = [20, 25, 30, 35]
+
+    const getMarkerColour = (value) => {
+        if (value === undefined) 
+            return "gray"
+        for (const [index, num] of humidexRanges.entries()) {
+            if (value < num) {
+                return legendColours[index]
+            }
+        }
+        return legendColours[humidexRanges.length]
+    }
+
     return (
         <>
             <MapContainer
@@ -38,7 +53,8 @@ export function Map({studySpots}) {
                 <AttributionControl position="bottomright" />
                 <Legend
                     title="Humidex Range"
-                    ranges={["Less than 20", "20-25", "25-30", "30-35", "35+"]}
+                    colours={legendColours}
+                    rangeTitles={["Less than 20", "20-25", "25-30", "30-35", "More than 35"]}
                 />
                 {
                     studySpots && studySpots.map((spot) => {
@@ -52,6 +68,7 @@ export function Map({studySpots}) {
                                     description = {spot.description ?? ""}
                                     graphs = {spot.graphs ?? []}
                                     photo = {spot.photo ?? ""}
+                                    colour = {getMarkerColour(spot.avgHumidex)}
                                 />
                             );
                         } else {

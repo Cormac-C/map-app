@@ -2,10 +2,7 @@ import React from "react";
 import L from "leaflet";
 import { Row, Col } from "react-bootstrap";
 
-export function Legend({title, ranges}) {
-    //TODO improve the colours up here
-    const colours = ["purple", "cyan", "green", "yellow", "orange", "red"]
-
+export function Legend({title, colours, rangeTitles}) {
     return (
         <div className='leaflet-top leaflet-left'>
             <div 
@@ -24,7 +21,7 @@ export function Legend({title, ranges}) {
                     <h5>
                         {title}
                     </h5>
-                    {ranges && ranges.map((range, index) => {
+                    {rangeTitles && rangeTitles.map((range, index) => {
                         return (
                             <Row
                                 className="justify-content-start"

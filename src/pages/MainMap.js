@@ -17,7 +17,9 @@ export function MainMap() {
     {
       "lat": 43.47307772562945,  
       "lng": -80.54030256817363,
-      "title": "E7 6008"
+      "title": "E7 6008",
+      "avgHumidex": 22, //Fake data, needs t be replaced
+      "avgLight": 300, 
     },
     {
       "lat": 43.46950349322649, 
