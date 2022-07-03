@@ -1,7 +1,6 @@
 import React from "react";
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
-// Need to replace this pin svg t some point
 import { Carousel, Image } from "react-bootstrap";
 
 export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour}) {
