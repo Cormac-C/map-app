@@ -46,7 +46,12 @@ export function Map({studySpots}) {
                             return (
                                 <StudySpot
                                     position = {spot && spot.lat && spot.lng ? [spot.lat, spot.lng] : [0 , 0]}
-                                    title = {spot ? spot.title : ""}
+                                    title = {spot.title ?? ""}
+                                    avgHumidex = {spot.avgHumidex ?? -1}
+                                    avgLight = {spot.avgLight ?? -1}
+                                    description = {spot.description ?? ""}
+                                    graphs = {spot.graphs ?? []}
+                                    photo = {spot.photo ?? ""}
                                 />
                             );
                         } else {

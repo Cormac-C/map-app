@@ -3,9 +3,9 @@ import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 // Need to replace this pin svg t some point
 import pinMarker from '../assets/pin.svg'
-import { Carousel } from "react-bootstrap";
+import { Carousel, Image } from "react-bootstrap";
 
-export function StudySpot({position, title}) {
+export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo}) {
     const icon = new L.Icon({
         iconUrl: pinMarker,
         iconSize: new L.Point(25, 25),
@@ -17,8 +17,22 @@ export function StudySpot({position, title}) {
                 icon={icon}
             >
                 <Popup>
-                    <h3>{title}</h3>
-                    <p>This is a brief desciption of the study spot. It might contain some info about how many people study here.</p>
+                    {photo && photo.length > 0 ? 
+                        <Image 
+                            src={photo}
+                            alt="A photo of the study spot"
+                            fluid
+                        />
+                        :
+                        null
+                    }
+                    
+                    <h5>{title}</h5>
+                    <div><b>Average Humidex: </b> {avgHumidex}</div>
+                    <div><b>Average Light Level: </b> {avgLight}</div>
+                    <br/>
+                    <b>Environmental Description: </b>
+                    <p>{description}</p>
                     <Carousel variant="dark">
                         <Carousel.Item>
                             <img

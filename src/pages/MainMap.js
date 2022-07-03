@@ -17,7 +17,12 @@ export function MainMap() {
     {
       "lat": 43.46950349322649, 
       "lng": -80.54157509538742 ,
-      "title": "DP LIbrary Umbrellas"
+      "title": "DP Library Umbrellas",
+      "avgHumidex": 25, //Fake data, needs t be replaced
+      "avgLight": 300, 
+      "description": "Outside of the Dana Porter Library, there is a small courtyard of chairs with some umbrellas where students may choose to study outside",
+      "graphs": ["sampleGraph.png"],
+      "photo": "umbrellas.jpg"
     },
     {
       "lat": 43.47029914832782, 
