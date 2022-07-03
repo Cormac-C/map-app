@@ -1,7 +1,6 @@
 import React from "react";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import { StudySpot } from "./StudySpot";
-import { WeatherInfo } from "./WeatherInfo";
 import { Legend } from "./Legend";
 
 export function Map({studySpots}) {
