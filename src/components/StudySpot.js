@@ -49,7 +49,7 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                                                     fluid
                                                     src={graph.img}
                                                     style= {{
-                                                        marginBottom: "5rem"
+                                                        marginBottom: "4.5rem"
                                                     }}
                                                 />
                                                 <Carousel.Caption>
