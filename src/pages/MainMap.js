@@ -7,7 +7,12 @@ export function MainMap() {
     {
       "lat": 43.47313806626149, 
       "lng": -80.5403374368897, 
-      "title": "E7 SYDE Lounge"
+      "title": "E7 SYDE Lounge",
+      "avgHumidex": 25, //Fake data, needs t be replaced
+      "avgLight": 300, 
+      "description": "On the 6th floor of E5, the SYDE lounge is a popular room for SYDE students to study, socialize, and play foosball.",
+      "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}],
+      "photo": "sydeLounge.jpg"
     },
     {
       "lat": 43.47307772562945,  
@@ -20,7 +25,7 @@ export function MainMap() {
       "title": "DP Library Umbrellas",
       "avgHumidex": 25, //Fake data, needs t be replaced
       "avgLight": 300, 
-      "description": "Outside of the Dana Porter Library, there is a small courtyard of chairs with some umbrellas where students may choose to study outside",
+      "description": "Outside of the Dana Porter Library, there is a small courtyard of chairs with some umbrellas where students may choose to study outside.",
       "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}],
       "photo": "umbrellas.jpg"
     },
