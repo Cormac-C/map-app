@@ -1,5 +1,4 @@
 import React from "react";
-import L from "leaflet";
 import { Row, Col } from "react-bootstrap";
 
 export function Legend({title, colours, rangeTitles}) {
