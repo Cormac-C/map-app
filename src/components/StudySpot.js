@@ -36,35 +36,34 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                         <br/>
                         {description}
                     </div>
-                    <Carousel variant="dark">
-                        <Carousel.Item>
-                            <img
-                                style={{
-                                    maxWidth: "100%",
-                                    padding: "1.5rem",
-                                }}
-                                src="sampleGraph.png"
-                                alt="An example graph"
-                            />
-                            <Carousel.Caption>
-                                <h3>This is the first graph about the location</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                style={{
-                                    maxWidth: "100%",
-                                    padding: "1.5rem",
-                                }}
-                                src="sampleGraph.png"
-                                alt="An example graph"
-                            />
-                            <Carousel.Caption>
-                                <h3>This is the second graph about the location</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
-                    
+                    <br/>
+                    {graphs && graphs.length > 0 ?
+                        <div>
+                            <b>Graph Data: </b>
+                            <Carousel variant="dark">
+                                {
+                                    graphs && graphs.map((graph) => {
+                                        return (
+                                            <Carousel.Item>
+                                                <Image
+                                                    fluid
+                                                    src={graph.img}
+                                                    style= {{
+                                                        marginBottom: "5rem"
+                                                    }}
+                                                />
+                                                <Carousel.Caption>
+                                                    {graph.description}
+                                                </Carousel.Caption>
+                                            </Carousel.Item>
+                                        )
+                                    })
+                                }
+                            </Carousel>
+                        </div>
+                    : 
+                        null
+                    }
                 </Popup>
             </Marker>
         </>
