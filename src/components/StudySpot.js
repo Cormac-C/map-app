@@ -1,15 +1,22 @@
 import React from "react";
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
-// Need to replace this pin svg t some point
-import pinMarker from '../assets/pin.svg'
-import { Carousel } from "react-bootstrap";
+import { Carousel, Image } from "react-bootstrap";
 
-export function StudySpot({position, title}) {
-    const icon = new L.Icon({
-        iconUrl: pinMarker,
-        iconSize: new L.Point(25, 25),
-      });
+export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour}) {
+    const markerHtml = `
+        background-color: ${colour};
+        width: 1.25rem;
+        height: 1.25rem;
+        display: block;
+        left: -0.25rem;
+        top: -0.25rem;
+        position: relative;
+        border-radius: 1rem;
+        border: 1px solid #FFFFFF`
+    const icon = new L.divIcon({
+        html: `<span style="${markerHtml}" />`
+    })
     return (
         <>
             <Marker 
@@ -17,37 +24,53 @@ export function StudySpot({position, title}) {
                 icon={icon}
             >
                 <Popup>
-                    <h3>{title}</h3>
-                    <p>This is a brief desciption of the study spot. It might contain some info about how many people study here.</p>
-                    <Carousel variant="dark">
-                        <Carousel.Item>
-                            <img
-                                style={{
-                                    maxWidth: "100%",
-                                    padding: "1.5rem",
-                                }}
-                                src="sampleGraph.png"
-                                alt="An example graph"
-                            />
-                            <Carousel.Caption>
-                                <h3>This is the first graph about the location</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                style={{
-                                    maxWidth: "100%",
-                                    padding: "1.5rem",
-                                }}
-                                src="sampleGraph.png"
-                                alt="An example graph"
-                            />
-                            <Carousel.Caption>
-                                <h3>This is the second graph about the location</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
+                    {photo && photo.length > 0 ? 
+                        <Image 
+                            src={photo}
+                            alt="A photo of the study spot"
+                            fluid
+                        />
+                        :
+                        null
+                    }
                     
+                    <h5>{title}</h5>
+                    <div><b>Average Humidex: </b> {avgHumidex}</div>
+                    <div><b>Average Light Level: </b> {avgLight}</div>
+                    <br/>
+                    <div>
+                        <b>Environmental Description: </b>
+                        <br/>
+                        {description}
+                    </div>
+                    <br/>
+                    {graphs && graphs.length > 0 ?
+                        <div>
+                            <b>Graph Data: </b>
+                            <Carousel variant="dark">
+                                {
+                                    graphs && graphs.map((graph) => {
+                                        return (
+                                            <Carousel.Item>
+                                                <Image
+                                                    fluid
+                                                    src={graph.img}
+                                                    style= {{
+                                                        marginBottom: "4.5rem"
+                                                    }}
+                                                />
+                                                <Carousel.Caption>
+                                                    {graph.description}
+                                                </Carousel.Caption>
+                                            </Carousel.Item>
+                                        )
+                                    })
+                                }
+                            </Carousel>
+                        </div>
+                    : 
+                        null
+                    }
                 </Popup>
             </Marker>
         </>
