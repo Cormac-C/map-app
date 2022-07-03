@@ -31,8 +31,11 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                     <div><b>Average Humidex: </b> {avgHumidex}</div>
                     <div><b>Average Light Level: </b> {avgLight}</div>
                     <br/>
-                    <b>Environmental Description: </b>
-                    <p>{description}</p>
+                    <div>
+                        <b>Environmental Description: </b>
+                        <br/>
+                        {description}
+                    </div>
                     <Carousel variant="dark">
                         <Carousel.Item>
                             <img
