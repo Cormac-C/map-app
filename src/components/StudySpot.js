@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
-import { Carousel, Image } from "react-bootstrap";
+import { Carousel, Image, Modal } from "react-bootstrap";
 import './StudySpot.css';
 
 export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour, time}) {
     const timeOptions = ['Morning', 'Afternoon',  'Evening'];
+
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupGraph, setPopupGraph] = useState();
+
     const markerHtml = `
         background-color: ${colour};
         width: 1.25rem;
@@ -19,6 +23,12 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
     const icon = new L.divIcon({
         html: `<span style="${markerHtml}" />`
     })
+    const handleOpenGraph = (graph) => {
+        setShowPopup(true);
+        setPopupGraph(graph);
+    }
+    const handleClose = () => setShowPopup(false);
+
     return (
         <>
             <Marker 
@@ -47,11 +57,16 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                         {graphs && graphs.length > 0 ?
                             <div>
                                 <p><b>Graph Data: </b> </p>
-                                <Carousel variant="dark">
+                                <Carousel 
+                                    variant="dark"
+                                    interval={null}
+                                >
                                     {
                                         graphs && graphs.map((graph) => {
                                             return (
-                                                <Carousel.Item>
+                                                <Carousel.Item
+                                                    onClick={() => handleOpenGraph(graph)}
+                                                >
                                                     <Image
                                                         fluid
                                                         src={graph.img}
@@ -74,6 +89,17 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                      </div>
                 </Popup>
             </Marker>
+            <Modal show={showPopup} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{popupGraph && popupGraph.description}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Image
+                        fluid
+                        src={popupGraph && popupGraph.img}
+                    />
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
