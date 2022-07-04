@@ -5,7 +5,7 @@ import { StudySpot } from "./StudySpot";
 import { Legend } from "./Legend";
 
 export function Map({studySpots}) {
-    const zoom = 16.5;
+    const zoom = 17.2;
     const minZoom = 15;
     const maxZoom = 18;
     const zoomSnap = 0;
