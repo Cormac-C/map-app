@@ -1,4 +1,5 @@
 import React from "react";
+import L from "leaflet";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import { StudySpot } from "./StudySpot";
 import { Legend } from "./Legend";
@@ -10,6 +11,7 @@ export function Map({studySpots}) {
     const zoomSnap = 0;
     const zoomDelta = 0.25;
     const currentLocation = { lat: 43.471, lng: -80.543 };
+    const mapBounds = L.latLngBounds(L.latLng(43.46350530353528, -80.55339002975062), L.latLng(43.48012813821771, -80.53163339056768))
     const mapBoxStyleUrl = "https://api.mapbox.com/styles/v1/cormacc/cl4pvmkgk000u15rpva8wyi39/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWFjYyIsImEiOiJjbDRwdWQxcXIwNXJxM2NwbG9zcTg2cHkyIn0.yAYe13rux3sEtmH9ucEEpw"
 
     //TODO improve the colours up here
@@ -34,6 +36,7 @@ export function Map({studySpots}) {
                 zoom={zoom}
                 minZoom={minZoom}
                 maxZoom={maxZoom}
+                maxBounds={mapBounds}
                 zoomSnap={zoomSnap}
                 zoomDelta={zoomDelta}
                 zoomControl={false}
