@@ -4,7 +4,8 @@ import { Marker, Popup } from "react-leaflet";
 import { Carousel, Image } from "react-bootstrap";
 import './StudySpot.css';
 
-export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour}) {
+export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour, time}) {
+    const timeOptions = ['Morning', 'Afternoon',  'Evening'];
     const markerHtml = `
         background-color: ${colour};
         width: 1.25rem;
@@ -39,9 +40,9 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                         null
                     }
                     <div class="popupwrapper">
-                        <h3>{title}</h3>
-                        <h6>Average Temperature: {avgHumidex}</h6>
-                        <h6>Average Humidex: {avgLight}</h6>
+                        <h3>{title} ({timeOptions[time]})</h3>
+                        <h6>Average Temperature: {avgHumidex[time]}</h6>
+                        <h6>Average Humidex: {avgLight[time]}</h6>
                         <p><b>Environmental Description:</b> {description}</p>
                         {graphs && graphs.length > 0 ?
                             <div>

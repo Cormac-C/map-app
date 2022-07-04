@@ -21,11 +21,11 @@ export function Map({studySpots}) {
 
     const [time, setTime] = useState("0")
 
-    const getMarkerColour = (value) => {
-        if (value === undefined) 
+    const getMarkerColour = (values) => {
+        if (values === undefined) 
             return "gray"
         for (const [index, num] of humidexRanges.entries()) {
-            if (value < num) {
+            if (values[time] < num) {
                 return legendColours[index]
             }
         }
@@ -78,6 +78,7 @@ export function Map({studySpots}) {
                                     graphs = {spot.graphs ?? []}
                                     photo = {spot.photo ?? ""}
                                     colour = {getMarkerColour(spot.avgHumidex)}
+                                    time={time}
                                 />
                             );
                         } else {
