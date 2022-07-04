@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import { StudySpot } from "./StudySpot";
 import { Legend } from "./Legend";
+import { TimeSelector } from "./TimeSelector"
 
 export function Map({studySpots}) {
-    const zoom = 16.5;
+    const zoom = 17.2;
     const minZoom = 15;
     const maxZoom = 18;
     const zoomSnap = 0;
@@ -18,11 +19,13 @@ export function Map({studySpots}) {
     const legendColours = ["purple", "cyan", "green", "yellow", "orange", "red"]
     const humidexRanges = [20, 25, 30, 35]
 
-    const getMarkerColour = (value) => {
-        if (value === undefined) 
+    const [time, setTime] = useState("0")
+
+    const getMarkerColour = (values) => {
+        if (values === undefined) 
             return "gray"
         for (const [index, num] of humidexRanges.entries()) {
-            if (value < num) {
+            if (values[time] < num) {
                 return legendColours[index]
             }
         }
@@ -53,6 +56,10 @@ export function Map({studySpots}) {
                     <ZoomControl position="bottomleft" />
                 </nav>
                 <AttributionControl position="bottomright" />
+                <TimeSelector
+                    time={time}
+                    setTime={setTime}
+                />
                 <Legend
                     title="Humidex Range"
                     colours={legendColours}
@@ -71,6 +78,7 @@ export function Map({studySpots}) {
                                     graphs = {spot.graphs ?? []}
                                     photo = {spot.photo ?? ""}
                                     colour = {getMarkerColour(spot.avgHumidex)}
+                                    time={time}
                                 />
                             );
                         } else {
