@@ -41,7 +41,7 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                     }
                     <div class="popupwrapper">
                         <h3>{title} ({timeOptions[time]})</h3>
-                        <h6>Average HUmidex: {avgHumidex[time]}</h6>
+                        <h6>Average Humidex: {avgHumidex[time]}</h6>
                         <h6>Average Light: {avgLight[time]}</h6>
                         <p><b>Environmental Description:</b> {description}</p>
                         {graphs && graphs.length > 0 ?
