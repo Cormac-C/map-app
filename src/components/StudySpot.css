@@ -1,32 +1,58 @@
+.carousel {
+    margin: -10px 0;
+}
+
+.carousel-caption {
+    margin: 8px 0;
+}
+
+.carousel-indicators {
+    margin-bottom: 1.5rem;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: 5%;
+    bottom: 30%;
+    margin: 0 -16px;
+}
+
 .leaflet-popup-content {
     margin: 0;
 }
 
 .leaflet-popup-content p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    margin: 16px 0;
+    margin: 8px 0 16px;
     letter-spacing: -0.25px;
+    line-height: 16px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    border-radius: 20px;
+    height: 26px;
+    width: 26px;
+    top: 1.5%;
+    right: 3%;
+    background: #bfbfbf;
+    opacity: 80%;
 }
 
 .popupwrapper {
-    margin: 24px;
-}
-
-.locationimg {
-    border-radius: 12px 12px 0 0;
+    margin: 20px 24px -4px;
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 h6 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 b {
     font-weight: 500;
 }
+
