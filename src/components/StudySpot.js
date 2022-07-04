@@ -18,14 +18,16 @@ export function StudySpot({position, title}) {
                 icon={icon}
             >
                 <Popup>
-                    { <img 
+                    { <img class="locationimg"
                         style={{
-                            maxWidth: "100%",
-                            padding: "10px 0",
+                            maxWidth: "101%",
+                            margin: "-1px",
                         }}
                         src="sampleGraph.png"
                         alt="An example graph"
                     />}
+
+                    <div class="popupwrapper">
                     <h3>{title}</h3>
                     <h6>Average Temperature</h6>
                     <h6>Average Humidex</h6>
@@ -37,6 +39,7 @@ export function StudySpot({position, title}) {
                         src="sampleGraph.png"
                         alt="An example graph"
                     />
+                    </div>
                     
                     {/* <Carousel variant="dark">
                         <Carousel.Item>
