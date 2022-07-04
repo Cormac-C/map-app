@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, ZoomControl, AttributionControl} from "react-leaflet";
 import { StudySpot } from "./StudySpot";
 import { Legend } from "./Legend";
+import { TimeSelector } from "./TimeSelector"
 
 export function Map({studySpots}) {
     const zoom = 17.2;
@@ -17,6 +18,8 @@ export function Map({studySpots}) {
     //TODO improve the colours up here
     const legendColours = ["purple", "cyan", "green", "yellow", "orange", "red"]
     const humidexRanges = [20, 25, 30, 35]
+
+    const [time, setTime] = useState("0")
 
     const getMarkerColour = (value) => {
         if (value === undefined) 
@@ -53,6 +56,10 @@ export function Map({studySpots}) {
                     <ZoomControl position="bottomleft" />
                 </nav>
                 <AttributionControl position="bottomright" />
+                <TimeSelector
+                    time={time}
+                    setTime={setTime}
+                />
                 <Legend
                     title="Humidex Range"
                     colours={legendColours}
