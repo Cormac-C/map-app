@@ -5,30 +5,47 @@ import { Map } from "../components/Map";
 export function MainMap() {
   const studySpots = [
     {
-      "lat": 43.4728428044162, 
-      "lng": -80.54011120174852,
-      "title": "E7 6008 + SYDE Lounge"
+      "lat": 43.47313806626149, 
+      "lng": -80.5403374368897, 
+      "title": "E7 SYDE Lounge",
+      "avgHumidex": 25, //Fake data, needs t be replaced
+      "avgLight": 300, 
+      "description": "On the 6th floor of E5, the SYDE lounge is a popular room for SYDE students to study, socialize, and play foosball.",
+      "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}],
+      "photo": "sydeLounge.jpg"
     },
     {
-      "lat": 43.47029566965135, 
-      "lng": -80.54070467620743,
-      "title": "RCH"
+      "lat": 43.47307772562945,  
+      "lng": -80.54030256817363,
+      "title": "E7 6008",
+      "avgHumidex": 22, //Fake data, needs t be replaced
+      "avgLight": 300, 
     },
     {
-      "lat": 43.469707, 
-      "lng": -80.541648,
-      "title": "DP Outdoor Lounge"
+      "lat": 43.46950349322649, 
+      "lng": -80.54157509538742 ,
+      "title": "DP Library Umbrellas",
+      "avgHumidex": 25, //Fake data, needs t be replaced
+      "avgLight": 300, 
+      "description": "Outside of the Dana Porter Library, there is a small courtyard of chairs with some umbrellas where students may choose to study outside.",
+      "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}],
+      "photo": "umbrellas.jpg"
     },
     {
-      "lat": 43.4731239265899,  
-      "lng": -80.54160413506916,
-      "title": "DC Library"
+      "lat": 43.47029914832782, 
+      "lng": -80.54092536092635,
+      "title": "RCH 209"
     },
     {
-      "lat": 43.51829246289879, 
-      "lng": -80.53948146497046,
+      "lat": 43.47248434388779,
+      "lng":  -80.54226019005233,
+      "title": "DC Silent Study"
+    },
+    {
+      "lat": 43.47135626330101, 
+      "lng": -80.54372532587942,
       "title": "QNC 2501"
-    },
+    }
   ]
   return (
     <main className = "App">

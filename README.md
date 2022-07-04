@@ -1,6 +1,9 @@
 #Inspiration
 The Leaflet, Mapbox tech stack for this project was inspired by [https://github.com/lesliexin/waterworks](https://github.com/lesliexin/waterworks).
 
+#Development
+Do development work in the develop branch as pushing changes into the master will trigger a new build and deployment.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
