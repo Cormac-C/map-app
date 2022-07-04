@@ -1,0 +1,20 @@
+.leaflet-popup-content {
+    margin: 24px;
+}
+
+.leaflet-popup-content p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 16px 0;
+    letter-spacing: -0.25px;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+b {
+    font-weight: 500;
+}

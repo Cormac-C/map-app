@@ -2,6 +2,9 @@ import React from "react";
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 import { Carousel, Image } from "react-bootstrap";
+// Need to replace this pin svg t some point
+import pinMarker from '../assets/pin.svg'
+import './StudySpot.css';
 
 export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour}) {
     const markerHtml = `
@@ -33,20 +36,13 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
                         :
                         null
                     }
-                    
-                    <h5>{title}</h5>
-                    <div><b>Average Humidex: </b> {avgHumidex}</div>
-                    <div><b>Average Light Level: </b> {avgLight}</div>
-                    <br/>
-                    <div>
-                        <b>Environmental Description: </b>
-                        <br/>
-                        {description}
-                    </div>
-                    <br/>
+                    <h3>{title}</h3>
+                    <h6>Average Temperature: {avgHumidex}</h6>
+                    <h6>Average Humidex: {avgLight}</h6>
+                    <p><b>Environmental Description:</b> {description}</p>
                     {graphs && graphs.length > 0 ?
                         <div>
-                            <b>Graph Data: </b>
+                            <p><b>Graph Data: </b> </p>
                             <Carousel variant="dark">
                                 {
                                     graphs && graphs.map((graph) => {
