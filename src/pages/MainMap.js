@@ -28,7 +28,7 @@ export function MainMap() {
       "avgHumidex": [25, 31, 18], //Fake data, needs t be replaced
       "avgLight": [300, 400, 200], 
       "description": "Outside of the Dana Porter Library, there is a small courtyard of chairs with some umbrellas where students may choose to study outside.",
-      "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}],
+      "graphs": [{img: "sampleGraph.png", description: "This is just a sample graph rn"}, {img: "umbrellas.jpg", description: "This is just a sample graph rn"}],
       "photo": "umbrellas.jpg"
     },
     {
