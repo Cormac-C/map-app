@@ -17,7 +17,7 @@ export function Map({studySpots}) {
 
     //TODO improve the colours up here
     const legendColours = ["purple", "cyan", "green", "yellow", "orange", "red"]
-    const humidexRanges = [20, 25, 30, 35]
+    const humidexRanges = [20, 23, 26, 29, 32]
 
     const [time, setTime] = useState("0")
 
@@ -63,7 +63,7 @@ export function Map({studySpots}) {
                 <Legend
                     title="Humidex Range"
                     colours={legendColours}
-                    rangeTitles={["Less than 20", "20-25", "25-30", "30-35", "More than 35"]}
+                    rangeTitles={["Less than 20", "20-23", "23-26", "26-29", "29-32", "More than 32"]}
                 />
                 {
                     studySpots && studySpots.map((spot) => {
