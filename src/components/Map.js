@@ -13,7 +13,7 @@ export function Map({studySpots}) {
     const mapBoxStyleUrl = "https://api.mapbox.com/styles/v1/cormacc/cl4pvmkgk000u15rpva8wyi39/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWFjYyIsImEiOiJjbDRwdWQxcXIwNXJxM2NwbG9zcTg2cHkyIn0.yAYe13rux3sEtmH9ucEEpw"
 
     //TODO improve the colours up here
-    const legendColours = ["purple", "cyan", "green", "yellow", "orange", "red"]
+    const legendColours = ["#B556E1", "#56C0E1", "#5AECAF", "#F3E13E", "#FF8F35", "#E74C54"]
     const humidexRanges = [20, 25, 30, 35]
 
     const getMarkerColour = (value) => {
