@@ -15,7 +15,12 @@ export function TimeSelector({time, setTime}) {
                     backgroundColor: "white",
                 }}
             >
-                <Row>
+                <Row
+                    style={{
+                        paddingBottom: "0px",
+                        paddingRight: "10px"
+                    }}   
+                >
                     <ButtonGroup>
                         {timeOptions.map((radio, idx) => (
                             <ToggleButton

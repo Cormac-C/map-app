@@ -1,0 +1,17 @@
+.leaflet-touch .leaflet-bar {
+    border: "none";
+}
+
+h5 {
+    font-size: 20px;
+    text-align: left;
+}
+
+.row {
+    padding-bottom: 10px;
+}
+
+.row>* {
+    padding-right: 0;
+    margin-bottom: -1px;
+}

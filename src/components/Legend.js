@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import './Legend.css';
 
 export function Legend({title, colours, rangeTitles}) {
     return (
@@ -9,15 +10,21 @@ export function Legend({title, colours, rangeTitles}) {
                 style={{
                     backgroundColor: "white",
                     maxWidth: "15rem",
+                    border: "4px solid black",
+                    borderRadius: "0",
                 }}
             >
                 <Row
                     style={{
                         paddingLeft: "1.5rem",
-                        paddingRight: "1.5rem"
+                        paddingRight: "1.5rem",
                     }}
                 >
-                    <h5>
+                    <h5
+                    style={{
+                        margin: "14px 0",
+                    }}
+                    >
                         {title}
                     </h5>
                     {rangeTitles && rangeTitles.map((range, index) => {
@@ -31,8 +38,7 @@ export function Legend({title, colours, rangeTitles}) {
                                             float: "left",
                                             height: "20px",
                                             width: "20px",
-                                            marginBottom: "15px",
-                                            border: "1px solid black",
+                                            border: "3px solid black",
                                             clear: "both",
                                             backgroundColor: colours[index],
                                         }}
