@@ -57,3 +57,16 @@ b {
     font-weight: 500;
 }
 
+.modal {
+    top: 22%;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-title {
+    letter-spacing: -0.5px;
+    font-size: 20px;
+}
+
