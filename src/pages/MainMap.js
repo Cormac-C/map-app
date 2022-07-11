@@ -1,4 +1,5 @@
-import React from "react";
+import {React, useEffect} from "react";
+import { hotjar } from 'react-hotjar';
 import { Map } from "../components/Map";
 
 
@@ -65,6 +66,11 @@ export function MainMap() {
       "photo": "qnc.png"
     }
   ]
+
+  useEffect(() => {
+    hotjar.initialize(3061058, 6);
+  }, [])
+
   return (
     <main className = "App">
       <Map 
