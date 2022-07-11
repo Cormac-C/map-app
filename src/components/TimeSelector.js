@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, ButtonGroup, ToggleButton } from "react-bootstrap";
+import { hotjar } from 'react-hotjar';
 
 export function TimeSelector({time, setTime}) {
     const timeOptions = [
@@ -33,6 +34,7 @@ export function TimeSelector({time, setTime}) {
                                 checked={radio.value === time}
                                 onChange={(e) => {
                                     console.log(e.currentTarget.value)
+                                    hotjar.event('change-time');
                                     setTime(e.currentTarget.value)
                                 }}
                             >

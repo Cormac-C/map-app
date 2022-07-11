@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 import { Carousel, Image, Modal } from "react-bootstrap";
+import { hotjar } from 'react-hotjar';
 import './StudySpot.css';
 
 export function StudySpot({position, title, avgHumidex, avgLight, description, graphs, photo, colour, time}) {
@@ -24,6 +25,7 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
         html: `<span style="${markerHtml}" />`
     })
     const handleOpenGraph = (graph) => {
+        hotjar.event('open-graph');
         setShowPopup(true);
         setPopupGraph(graph);
     }
@@ -34,6 +36,11 @@ export function StudySpot({position, title, avgHumidex, avgLight, description, g
             <Marker 
                 position={position}
                 icon={icon}
+                eventHandlers={{
+                    click: (e) => {
+                      hotjar.event('open-study-spot');
+                    },
+                  }}
             >
                 <Popup>
                     {photo && photo.length > 0 ? 
